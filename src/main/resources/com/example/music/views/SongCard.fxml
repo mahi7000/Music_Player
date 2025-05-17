@@ -1,36 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" styleClass="song-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.music.controllers.SongCardController">
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="root" prefWidth="150.0" styleClass="song-card" stylesheets="@../css/song_card.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.music.controllers.SongCardController">
     <children>
         <StackPane>
-            <Circle radius="25" fill="#ffcdd8" stroke="#ffcdd8" strokeType="INSIDE"/>
-            <ImageView fx:id="albumArt" fitWidth="50" fitHeight="50" preserveRatio="true">
+            <Circle fill="#ffcdd8" radius="28.0" stroke="#ffcdd8" strokeType="INSIDE" />
+            <ImageView fx:id="albumArt" fitHeight="50" fitWidth="50" preserveRatio="true">
                 <image>
-                    <Image url="@../images/default_album.png"/>
+                    <Image url="@../images/album.png" />
                 </image>
                 <clip>
-                    <Circle centerX="25" centerY="25" radius="25"/>
+                    <Circle centerX="25" centerY="25" radius="25" />
                 </clip>
             </ImageView>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
         </StackPane>
 
-        <VBox spacing="5" styleClass="song-info">
-            <Label fx:id="songTitle" styleClass="song-title" text="Song Title"/>
-            <Label fx:id="artistName" styleClass="artist-name" text="Artist Name"/>
+        <VBox prefHeight="35.0" prefWidth="110.0" spacing="5" styleClass="song-info">
+            <Label fx:id="songTitle" styleClass="song-title" text="Song Title">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+            <Label fx:id="artistName" styleClass="artist-name" text="Artist Name" translateY="-5.0">
+            <font>
+               <Font size="8.0" />
+            </font></Label>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
         </VBox>
 
-        <Region HBox.hgrow="ALWAYS"/>
-
-        <Button fx:id="playButton" styleClass="play-button" mnemonicParsing="false">
-            <graphic>
-                <FontIcon iconLiteral="fa-play" iconSize="16"/>
-            </graphic>
-        </Button>
+        <Region VBox.vgrow="ALWAYS" />
+      <HBox>
+         <children>
+             <Region prefWidth="200.0" />
+             <Button fx:id="playButton" mnemonicParsing="false" styleClass="play-button">
+                <graphic>
+                    <FontIcon iconLiteral="fa-play" iconSize="16" styleClass="play-icon"/>
+                </graphic>
+             </Button>
+            <Region prefHeight="0.0" prefWidth="200.0" />
+         </children>
+      </HBox>
     </children>
-</HBox>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+</VBox>
