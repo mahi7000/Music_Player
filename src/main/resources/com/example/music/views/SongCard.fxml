@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<HBox fx:id="root" styleClass="song-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.music.controllers.SongCardController">
+    <children>
+        <StackPane>
+            <Circle radius="25" fill="#ffcdd8" stroke="#ffcdd8" strokeType="INSIDE"/>
+            <ImageView fx:id="albumArt" fitWidth="50" fitHeight="50" preserveRatio="true">
+                <image>
+                    <Image url="@../images/default_album.png"/>
+                </image>
+                <clip>
+                    <Circle centerX="25" centerY="25" radius="25"/>
+                </clip>
+            </ImageView>
+        </StackPane>
+
+        <VBox spacing="5" styleClass="song-info">
+            <Label fx:id="songTitle" styleClass="song-title" text="Song Title"/>
+            <Label fx:id="artistName" styleClass="artist-name" text="Artist Name"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button fx:id="playButton" styleClass="play-button" mnemonicParsing="false">
+            <graphic>
+                <FontIcon iconLiteral="fa-play" iconSize="16"/>
+            </graphic>
+        </Button>
+    </children>
+</HBox>
